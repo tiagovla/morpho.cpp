@@ -19,3 +19,6 @@ include_directories(./include ./src)
 add_executable(morpho ./src/main.cpp ./src/geometry.cpp)
 
 # external libs
+
+# docs
+add_subdirectory("docs")

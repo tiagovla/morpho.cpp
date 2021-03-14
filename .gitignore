@@ -3,5 +3,6 @@ libs/*
 bin/*
 .cache/
 .clangd/
-
+docs/html/*
+docs/latex/*
 
