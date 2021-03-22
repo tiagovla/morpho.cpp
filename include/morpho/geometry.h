@@ -12,14 +12,14 @@ typedef Eigen::Tensor<double, 3> tensor3;
 
 class Geometry {
 private:
-  vector3 t1;
-  vector3 t2;
-  vector3 t3;
+  vector3 a1_;
+  vector3 a2_;
+  vector3 a3_;
   int n1;
   int n2;
   int n3;
-  tensor3 epsr;
-  tensor3 mur;
+  tensor3 epsr_;
+  tensor3 mur_;
 
 public:
   Geometry(vector3 t1, vector3 t2, vector3 t3, int n1, int n2, int n3);
@@ -28,19 +28,20 @@ public:
   Geometry &operator=(const Geometry &other) = delete;
   Geometry &operator=(Geometry &&other) noexcept = delete;
 
-  vector3 get_t1() { return this->t1; };
-  vector3 get_t2() { return this->t2; };
-  vector3 get_t3() { return this->t3; };
+  const vector3 &a1() const { return a1_; };
+  const vector3 &a2() const { return a2_; };
+  const vector3 &a3() const { return a3_; };
 
-  vector3 get_T1();
-  vector3 get_T2();
-  vector3 get_T3();
+  vector3 b1();
+  vector3 b2();
+  vector3 b3();
 
-  const tensor3 &get_eps_r() const { return this->epsr; };
-  const tensor3 &get_mu_r() const { return this->mur; };
+  const tensor3 &eps_r() const { return epsr_; };
+  const tensor3 &mu_r() const { return mur_; };
 
-  void set_properties(double (*f)(double, double, double),
-                      double (*g)(double, double, double));
+  void set_properties(
+      double (*f)(double, double, double),
+      double (*g)(double, double, double));
 };
 }; // namespace morpho
 
