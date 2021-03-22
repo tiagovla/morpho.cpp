@@ -1,10 +1,11 @@
 #include "morpho/geometry.h"
+#include "morpho/types.h"
 #define PI 3.14159265358979323846
 
 morpho::Geometry::Geometry(
-    vector3 a1,
-    vector3 a2,
-    vector3 a3,
+    vector3d a1,
+    vector3d a2,
+    vector3d a3,
     int n1,
     int n2,
     int n3)
@@ -12,22 +13,10 @@ morpho::Geometry::Geometry(
   a1_ = a1;
   a2_ = a2;
   a3_ = a3;
-  epsr_ = tensor3(n1, n2, n3);
-  mur_ = tensor3(n1, n2, n3);
+  epsr_ = tensor3d(n1, n2, n3);
+  mur_ = tensor3d(n1, n2, n3);
   epsr_.setConstant(1.0);
   mur_.setConstant(1.0);
-}
-
-morpho::vector3 morpho::Geometry::b1() {
-  return 2 * PI * a2_.cross(a3_) / a1_.dot(a2_.cross(a3_));
-}
-
-morpho::vector3 morpho::Geometry::b2() {
-  return 2 * PI * a3_.cross(a1_) / a1_.dot(a2_.cross(a3_));
-}
-
-morpho::vector3 morpho::Geometry::b3() {
-  return 2 * PI * a1_.cross(a2_) / a1_.dot(a2_.cross(a3_));
 }
 
 void morpho::Geometry::set_properties(

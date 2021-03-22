@@ -3,41 +3,35 @@
 
 #include "Eigen/Dense"
 #include "Eigen/Geometry"
+#include "morpho/types.h"
 #include "unsupported/Eigen/CXX11/Tensor"
 
 namespace morpho {
 
-typedef Eigen::Vector<double, 3> vector3;
-typedef Eigen::Tensor<double, 3> tensor3;
-
 class Geometry {
 private:
-  vector3 a1_;
-  vector3 a2_;
-  vector3 a3_;
+  vector3d a1_;
+  vector3d a2_;
+  vector3d a3_;
   int n1;
   int n2;
   int n3;
-  tensor3 epsr_;
-  tensor3 mur_;
+  tensor3d epsr_;
+  tensor3d mur_;
 
 public:
-  Geometry(vector3 t1, vector3 t2, vector3 t3, int n1, int n2, int n3);
+  Geometry(vector3d a1, vector3d a2, vector3d a3, int n1, int n2, int n3);
   Geometry(const Geometry &other) = delete;
   Geometry(Geometry &&other) noexcept = delete;
   Geometry &operator=(const Geometry &other) = delete;
   Geometry &operator=(Geometry &&other) noexcept = delete;
 
-  const vector3 &a1() const { return a1_; };
-  const vector3 &a2() const { return a2_; };
-  const vector3 &a3() const { return a3_; };
+  const vector3d &a1() const { return a1_; };
+  const vector3d &a2() const { return a2_; };
+  const vector3d &a3() const { return a3_; };
 
-  vector3 b1();
-  vector3 b2();
-  vector3 b3();
-
-  const tensor3 &eps_r() const { return epsr_; };
-  const tensor3 &mu_r() const { return mur_; };
+  const tensor3d &eps_r() const { return epsr_; };
+  const tensor3d &mu_r() const { return mur_; };
 
   void set_properties(
       double (*f)(double, double, double),

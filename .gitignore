@@ -5,4 +5,4 @@ bin/*
 .clangd/
 docs/html/*
 docs/latex/*
-
+dependencies/
