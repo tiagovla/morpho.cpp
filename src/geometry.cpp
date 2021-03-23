@@ -22,12 +22,14 @@ morpho::Geometry::Geometry(
 void morpho::Geometry::set_properties(
     double (*f)(double, double, double),
     double (*g)(double, double, double)) {
-  auto d1 =
-      (a1_[0] + a2_[0] + a3_[0]) * Eigen::VectorXd::LinSpaced(n1, -0.5, 0.5);
-  auto d2 =
-      (a1_[1] + a2_[1] + a3_[1]) * Eigen::VectorXd::LinSpaced(n2, -0.5, 0.5);
-  auto d3 =
-      (a1_[2] + a2_[2] + a3_[2]) * Eigen::VectorXd::LinSpaced(n3, -0.5, 0.5);
+
+  Eigen::VectorXd d1 = Eigen::VectorXd::LinSpaced(n1, -0.5, 0.5);
+  Eigen::VectorXd d2 = Eigen::VectorXd::LinSpaced(n2, -0.5, 0.5);
+  Eigen::VectorXd d3 = Eigen::VectorXd::LinSpaced(n3, -0.5, 0.5);
+
+  d1 *= (a1_[0] + a2_[0] + a3_[0]);
+  d2 *= (a1_[1] + a2_[1] + a3_[1]);
+  d3 *= (a1_[2] + a2_[2] + a3_[2]);
 
   for (int i = 0; i < n1; ++i) {
     for (int j = 0; j < n2; ++j) {

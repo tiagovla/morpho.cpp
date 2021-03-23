@@ -7,7 +7,10 @@
 
 namespace morpho {
 typedef Eigen::Vector<double, 3> vector3d;
+typedef Eigen::VectorXd vectorXd;
+typedef Eigen::MatrixXd matrixXd;
 typedef Eigen::Tensor<double, 3> tensor3d;
+
 } // namespace morpho
 
 #endif // MORPHO_TYPES_H_

@@ -5,6 +5,7 @@
 #include "morpho/types.h"
 #include <iostream>
 #include <string>
+#include <numeric>
 
 namespace morpho {
 
@@ -36,6 +37,9 @@ public:
   vector3d b1();
   vector3d b2();
   vector3d b3();
+
+  matrixXd beta_vec();
+	vectorXd beta_len();
 };
 
 } // namespace morpho

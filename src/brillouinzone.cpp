@@ -23,6 +23,35 @@ morpho::BrillouinZonePath::BrillouinZonePath(
   this->n_points = n_points;
 };
 
+morpho::matrixXd morpho::BrillouinZonePath::beta_vec() {
+
+  size_t sv = path.size();
+  Eigen::MatrixXd beta{3, sv};
+  for (int i = 0; i < sv; ++i) {
+    beta.col(i) = path[i].point;
+  }
+
+  return beta;
+}
+
+morpho::vectorXd morpho::BrillouinZonePath::beta_len() {
+
+  size_t sv = path.size();
+  morpho::matrixXd beta = this->beta_vec();
+
+  auto n_rows{beta.rows()}, n_cols{beta.cols()};
+  auto e1 = beta.block(0, 1, n_rows, n_cols - 1);
+  auto e2 = beta.block(0, 0, n_rows, n_cols - 1);
+
+  morpho::vectorXd dif = (e2 - e1).colwise().norm();
+  morpho::vectorXd csum(dif.size() + 1);
+
+  csum << 0, dif;
+  std::partial_sum(csum.begin(), csum.end(), csum.begin(), std::plus<double>());
+
+  return csum;
+}
+
 morpho::vector3d morpho::BrillouinZonePath::b1() {
   return 2 * PI * a2_.cross(a3_) / a1_.dot(a2_.cross(a3_));
 }
