@@ -13,7 +13,6 @@ int main() {
   double a{1.0};
 
   int n1{32}, n2{32}, n3{32};
-
   morpho::vector3d a1{a, 0, 0}, a2{0, a, 0}, a3{0, 0, a};
 
   morpho::Geometry geo(a1, a2, a3, n1, n2, n3);
@@ -26,11 +25,11 @@ int main() {
   auto points = std::vector<morpho::SymmetryPoint>{p_Z, p_X, p_Y, p_Z};
   auto bz_path = morpho::BrillouinZonePath(points, a1, a2, a3, 50);
 
-	std::cout<<bz_path.beta_len()<<std::endl;
+  std::cout << bz_path.beta_len() << std::endl;
 
-  /* for (auto &point : points) { */
-  /*   std::cout << std::endl << point << std::endl; */
-  /* } */
+  /* /1* for (auto &point : points) { *1/ */
+  /* /1*   std::cout << std::endl << point << std::endl; *1/ */
+  /* /1* } *1/ */
 
-  return 0;
+  /* return 0; */
 }
