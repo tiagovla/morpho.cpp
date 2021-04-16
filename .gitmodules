@@ -1,6 +1,0 @@
-[submodule "dependencies/Eigen3"]
-	path = dependencies/Eigen3
-	url = https://gitlab.com/libeigen/eigen.git
-[submodule "dependencies/Boost"]
-	path = dependencies/Boost
-	url = https://github.com/boostorg/boost.git

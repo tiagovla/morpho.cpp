@@ -39,7 +39,7 @@ public:
   vector3d b3();
 
   matrixXd beta_vec();
-	vectorXd beta_len();
+  vectorXd beta_len();
 };
 
 } // namespace morpho
