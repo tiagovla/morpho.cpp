@@ -46,8 +46,8 @@ morpho::vectorXd morpho::BrillouinZonePath::beta_len() {
   morpho::vectorXd dif = (e2 - e1).colwise().norm();
   morpho::vectorXd csum(dif.size() + 1);
   csum << 0, dif;
-  /* std::partial_sum(csum.begin(), csum.end(), csum.begin(),
-   * std::plus<double>()); */
+  std::partial_sum(
+      csum.data(), csum.data() + csum.size(), csum.data(), std::plus<double>());
   return csum;
 }
 

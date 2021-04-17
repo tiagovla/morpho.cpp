@@ -27,9 +27,9 @@ int main() {
 
   std::cout << bz_path.beta_len() << std::endl;
 
-  /* /1* for (auto &point : points) { *1/ */
-  /* /1*   std::cout << std::endl << point << std::endl; *1/ */
-  /* /1* } *1/ */
+  for (auto &point : points) {
+    std::cout << std::endl << point << std::endl;
+  }
 
-  /* return 0; */
+  return 0;
 }
