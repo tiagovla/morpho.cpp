@@ -8,7 +8,7 @@ std::ostream &operator<<(std::ostream &os, const morpho::SymmetryPoint &p) {
 } // namespace morpho
 
 morpho::SymmetryPoint::SymmetryPoint(vector3d point, std::string name)
-    : point(point), name(name){};
+  : point(point), name(name){};
 
 morpho::BrillouinZonePath::BrillouinZonePath(
     std::vector<SymmetryPoint> path,

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.10)
 
 project(morpho)
 
@@ -13,14 +13,15 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-add_subdirectory("docs")
+# add_subdirectory("docs")
+# add_subdirectory("dependencies/googletest")
 
 file(GLOB SOURCES src/*.cpp)
 add_executable(morpho ${SOURCES})
 
 target_link_libraries(morpho PRIVATE Eigen)
 add_library(Eigen INTERFACE)
-target_include_directories(Eigen INTERFACE dependencies/eigen-3.3.9)
+target_include_directories(Eigen INTERFACE dependencies/eigen)
 
 
 include_directories(include src)

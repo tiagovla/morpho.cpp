@@ -1,5 +1,6 @@
 #include "morpho/brillouinzone.h"
 #include "morpho/geometry.h"
+#include "morpho/solver.h"
 #include "unsupported/Eigen/CXX11/Tensor"
 #include <iostream>
 #include <utility>
@@ -30,6 +31,8 @@ int main() {
   for (auto &point : points) {
     std::cout << std::endl << point << std::endl;
   }
+
+  morpho::Solver3D solver(geo, bz_path, 3, 3, 3);
 
   return 0;
 }

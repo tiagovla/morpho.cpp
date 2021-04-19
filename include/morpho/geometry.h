@@ -21,10 +21,10 @@ private:
 
 public:
   Geometry(vector3d a1, vector3d a2, vector3d a3, int n1, int n2, int n3);
-  Geometry(const Geometry &other) = delete;
-  Geometry(Geometry &&other) noexcept = delete;
-  Geometry &operator=(const Geometry &other) = delete;
-  Geometry &operator=(Geometry &&other) noexcept = delete;
+  /* Geometry(const Geometry &other) = delete; */
+  /* Geometry(Geometry &&other) noexcept = delete; */
+  /* Geometry &operator=(const Geometry &other) = delete; */
+  /* Geometry &operator=(Geometry &&other) noexcept = delete; */
 
   const vector3d &a1() const { return a1_; };
   const vector3d &a2() const { return a2_; };
